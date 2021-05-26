@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+    java:
+        restart: unless-stopped
+        environment:
+            - "UPDATE_BRANCH=master"
+            - "AUTO_UPDATE=1"
+            - "SERVER_JARFILE=geysermc.jar"
+            - "STARTUP=java -jar geysermc.jar"
+        volumes:
+            - '~/geysermc:/home/container'
+        ports:
+            - '19132:19132'
+        container_name: geysermc
+        image: 'jelle619/geysermc'
+        network_mode: bridge
